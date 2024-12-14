@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler
+      Runtime: nodejs20.x
+      CodeUri: s3://lambda-bucket-pdv/077e1f994a06b8c30ecdc44fb4214465
+      MemorySize: 128
+      Timeout: 3
+    Metadata:
+      SamResourceId: HelloWorldFunction
