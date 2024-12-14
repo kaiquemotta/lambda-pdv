@@ -30,8 +30,8 @@ jobs:
 
       - name: Deploy Lambda function
         run: |
-          aws lambda update-function-code \
-            --function-name YourLambdaFunctionName \
+          aws lambda pdv-lambda-HelloWorldFunction-Wk2ngiue6D3W \
+            --function-name pdv-lambda-HelloWorldFunction-Wk2ngiue6D3W \
             --zip-file fileb://lambda_function.zip \
             --region us-east-1
         env:
