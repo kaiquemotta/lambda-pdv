@@ -25,7 +25,8 @@ jobs:
         run: npm install
 
       - name: Zip the Lambda function
-        run: zip -r lambda_function.zip src
+        run: |
+          zip -r lambda_function.zip src  # Cria o arquivo .zip com o código da função Lambda
 
       - name: Deploy Lambda function
         run: |
