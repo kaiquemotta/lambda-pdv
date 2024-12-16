@@ -2,19 +2,16 @@ exports.handler = async (event) => {
     // Logando o evento para depuração
     console.log("Pre Token Generation event:", JSON.stringify(event));
 
-    // Modificando o e-mail no token
-    const claimsToAddOrOverride = {
-        "email": "kaique.motta@hotmail.com" // Substitui o valor do e-mail
-    };
+    // Verifica se o evento é do tipo esperado
+    if (event.triggerSource !== "TokenGeneration_HostedAuth") {
+        console.error("Invalid trigger source:", event.triggerSource);
+        throw new Error("Invalid trigger source");
+    }
 
-    // Estrutura da resposta com a versão "1" e claimsOverrideDetails
+    // Retorna a resposta com a versão 2 (a versão correta para Pre Token Generation)
     const response = {
-        version: "1",
-        payload: {
-            claimsOverrideDetails: {
-                claimsToAddOrOverride: claimsToAddOrOverride
-            }
-        }
+        version: "2",
+        payload: {}
     };
 
     return response;
