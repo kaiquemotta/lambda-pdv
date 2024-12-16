@@ -1,5 +1,8 @@
 exports.handler = async (event) => {
-    console.log("Received event:", JSON.stringify(event)); // Para debugar se necessário
+    console.log("Received event:", JSON.stringify(event)); // Imprime o evento recebido para depuração
+
+    // Verifica e imprime o tipo de trigger source
+    console.log("Trigger source:", event.triggerSource);
 
     // Verifica se o evento é o trigger correto para a Token Generation
     if (event.triggerSource !== "TokenGeneration_HostedAuth") {
