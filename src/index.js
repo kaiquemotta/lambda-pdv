@@ -2,9 +2,9 @@ exports.handler = async (event) => {
     // Logando o evento para depuração
     console.log("Pre Token Generation event:", JSON.stringify(event));
 
-    // Exemplo de como adicionar uma afirmação (claim) personalizada ao token
+    // Modificando o e-mail no token
     const claimsToAddOrOverride = {
-        "custom:example_claim": "example_value", // Adiciona um claim personalizado
+        "email": "kaique.motta@hotmail.com" // Substitui o valor do e-mail
     };
 
     // Estrutura da resposta com a versão "1" e claimsOverrideDetails
