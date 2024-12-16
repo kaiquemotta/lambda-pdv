@@ -1,4 +1,8 @@
 const handler = async (event) => {
+  // Log para verificar o evento que chegou
+  console.log('Evento recebido:', JSON.stringify(event));
+
+  // Modificando o evento (adicionando ou sobrescrevendo claims)
   event.response = {
     claimsOverrideDetails: {
       claimsToAddOrOverride: {
@@ -9,7 +13,12 @@ const handler = async (event) => {
     },
   };
 
+  // Log para verificar o evento antes de retornar
+  console.log('Evento modificado:', JSON.stringify(event));
+
+  // Retorna o evento modificado
   return event;
 };
 
-export { handler };
+// Exporte a função usando a sintaxe CommonJS
+module.exports.handler = handler;
