@@ -1,10 +1,15 @@
-exports.handler = async (event, context) => {
-    event.response.claimsOverrideDetails = {
-         "claimsToAddOrOverride": {
-            "attribute_key2": "attribute_value2",
-            "attribute_key": "attribute_value"
-        }
-    };
+const handler = async (event) => {
+  event.response = {
+    claimsOverrideDetails: {
+      claimsToAddOrOverride: {
+        my_first_attribute: "first_value",
+        my_second_attribute: "second_value",
+      },
+      claimsToSuppress: ["email"],
+    },
+  };
 
-    return event
+  return event;
 };
+
+export { handler };
