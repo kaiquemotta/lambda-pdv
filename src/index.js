@@ -3,8 +3,8 @@ const http = require('http');
 const handler = async (event) => {
   console.log('Evento recebido:', JSON.stringify(event));
 
-  // Recuperando o CPF do evento
-  const cpf = event.request.userAttributes['cognito:username']; // Ou outro campo onde o CPF é armazenado
+  // Recuperando o CPF do campo userName
+  const cpf = event.userName;
   console.log('CPF a ser validado:', cpf);
 
   let cpfExists = false; // Inicializa como false
